@@ -1,4 +1,4 @@
-DB_LASTUPDATED_SET,S. No,Incident Location,District,State/UT,Date_of_incident,No_of_deaths,Reason_of_death,Source,Date of publication,Link,Category,Name(s) and age,"Occupation
+DB_LASTUPDATED_SET,S. No,Incident Location,District,State/UT,Date_of_incident,No_of_deaths,Reason_of_death,Source,Date_of_publication,Link,Category,Name(s) and age,"Occupation
 Category"
 SET_JUNE-13,1,Agra,Agra,Uttar Pradesh,"March 28,2020",1,"Exhaustion, Migration",Times of India,"March 28,2020",https://m.timesofindia.com/city/agra/food-delivery-boy-dies-after-walking-200-kms-to-agra-from-delhi/amp_articleshow/74864379.cms?__twitter_impression=true,DarkGreen,Ranveer Singh (39),migrant worker- restaurant
 SET_JUNE-13,2,Pandesara,Surat,Gujarat,27-Mar-20,1,"Exhaustion, Lockdown",Indian Express,28-Mar-20,https://indianexpress.com/article/india/india-coronavirus-lockdown-62-year-old-dies-after-walking-home-from-hospital-in-surat-6336202/,DarkGreen,Gangaram(62),unspecified
