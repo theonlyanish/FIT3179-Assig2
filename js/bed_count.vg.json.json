@@ -1,0 +1,11 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 250,
+  "data": {"url": "https://raw.githubusercontent.com/theonlyanish/FIT3179-Assig2/main/data/HospitalBedsIndia.csv"},
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "State/UT", "type": "nominal", "title":"States/Union Territorys"},
+    "y": {"aggregate": "mean", "field":"NumUrbanBeds_NHP18", "title": "Number of beds"}
+  }
+}
