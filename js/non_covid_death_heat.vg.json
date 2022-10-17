@@ -1,0 +1,188 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "A simple bar chart with embedded data.",
+  "background": "white",
+  "padding": 5,
+  "style": "cell",
+  "data": [
+    {"name": "highlight_store"},
+    {
+      "name": "source_0",
+      "url": "https://raw.githubusercontent.com/theonlyanish/FIT3179-Assig2/main/data/india_non-virus-deaths.csv",
+      "format": {"type": "csv", "delimiter": ","},
+      "transform": [{"type": "identifier", "as": "_vgsid_"}]
+    },
+    {
+      "name": "data_0",
+      "source": "source_0",
+      "transform": [
+        {
+          "type": "aggregate",
+          "groupby": ["Date_of_incident", "Reason_of_death"],
+          "ops": ["count"],
+          "fields": [null],
+          "as": ["__count"]
+        },
+        {"type": "identifier", "as": "_vgsid_"}
+      ]
+    }
+  ],
+  "signals": [
+    {"name": "x_step", "value": 20},
+    {"name": "width", "update": "bandspace(domain('x').length, 0, 0) * x_step"},
+    {"name": "y_step", "value": 20},
+    {
+      "name": "height",
+      "update": "bandspace(domain('y').length, 0, 0) * y_step"
+    },
+    {
+      "name": "unit",
+      "value": {},
+      "on": [
+        {"events": "mousemove", "update": "isTuple(group()) ? group() : unit"}
+      ]
+    },
+    {
+      "name": "highlight",
+      "update": "vlSelectionResolve(\"highlight_store\", \"union\", true, true)"
+    },
+    {
+      "name": "highlight_tuple",
+      "on": [
+        {
+          "events": [{"source": "scope", "type": "mouseover"}],
+          "update": "datum && item().mark.marktype !== 'group' ? {unit: \"layer_1\", fields: highlight_tuple_fields, values: [(item().isVoronoi ? datum.datum : datum)[\"_vgsid_\"]]} : null",
+          "force": true
+        },
+        {"events": [{"source": "view", "type": "dblclick"}], "update": "null"}
+      ]
+    },
+    {
+      "name": "highlight_tuple_fields",
+      "value": [{"type": "E", "field": "_vgsid_"}]
+    },
+    {
+      "name": "highlight_toggle",
+      "value": false,
+      "on": [
+        {
+          "events": [{"source": "scope", "type": "mouseover"}],
+          "update": "event.shiftKey"
+        },
+        {"events": [{"source": "view", "type": "dblclick"}], "update": "false"}
+      ]
+    },
+    {
+      "name": "highlight_modify",
+      "on": [
+        {
+          "events": {"signal": "highlight_tuple"},
+          "update": "modify(\"highlight_store\", highlight_toggle ? null : highlight_tuple, highlight_toggle ? null : true, highlight_toggle ? highlight_tuple : null)"
+        }
+      ]
+    }
+  ],
+  "marks": [
+    {
+      "name": "layer_0_marks",
+      "type": "rect",
+      "style": ["rect"],
+      "interactive": false,
+      "from": {"data": "source_0"},
+      "encode": {
+        "update": {
+          "fill": {"value": "white"},
+          "x": {"field": {"group": "width"}},
+          "x2": {"value": 0},
+          "y": {"value": 0},
+          "y2": {"field": {"group": "height"}}
+        }
+      }
+    },
+    {
+      "name": "layer_1_marks",
+      "type": "rect",
+      "style": ["rect"],
+      "interactive": true,
+      "from": {"data": "data_0"},
+      "encode": {
+        "update": {
+          "stroke": {"value": "#911F27"},
+          "tooltip": {
+            "signal": "{\"Date_of_incident\": isValid(datum[\"Date_of_incident\"]) ? datum[\"Date_of_incident\"] : \"\"+datum[\"Date_of_incident\"], \"Reason_of_death\": isValid(datum[\"Reason_of_death\"]) ? datum[\"Reason_of_death\"] : \"\"+datum[\"Reason_of_death\"], \"Count of Records\": format(datum[\"__count\"], \"\")}"
+          },
+          "fill": {"scale": "color", "field": "__count"},
+          "strokeWidth": [
+            {
+              "test": "length(data(\"highlight_store\")) && vlSelectionTest(\"highlight_store\", datum)",
+              "value": 2
+            },
+            {"value": 0}
+          ],
+          "description": {
+            "signal": "\"Date_of_incident: \" + (isValid(datum[\"Date_of_incident\"]) ? datum[\"Date_of_incident\"] : \"\"+datum[\"Date_of_incident\"]) + \"; Reason_of_death: \" + (isValid(datum[\"Reason_of_death\"]) ? datum[\"Reason_of_death\"] : \"\"+datum[\"Reason_of_death\"]) + \"; Count of Records: \" + (format(datum[\"__count\"], \"\"))"
+          },
+          "x": {"scale": "x", "field": "Date_of_incident"},
+          "width": {"scale": "x", "band": 1},
+          "y": {"scale": "y", "field": "Reason_of_death"},
+          "height": {"scale": "y", "band": 1}
+        }
+      }
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "type": "band",
+      "domain": {"data": "data_0", "field": "Date_of_incident", "sort": true},
+      "range": {"step": {"signal": "x_step"}},
+      "paddingInner": 0,
+      "paddingOuter": 0
+    },
+    {
+      "name": "y",
+      "type": "band",
+      "domain": {"data": "data_0", "field": "Reason_of_death", "sort": true},
+      "range": {"step": {"signal": "y_step"}},
+      "paddingInner": 0,
+      "paddingOuter": 0
+    },
+    {
+      "name": "color",
+      "type": "linear",
+      "domain": {"data": "data_0", "field": "__count"},
+      "range": {"scheme": "purpleblue"},
+      "interpolate": "hcl",
+      "zero": false
+    }
+  ],
+  "axes": [
+    {
+      "scale": "x",
+      "orient": "bottom",
+      "grid": false,
+      "labelFontSize": 13,
+      "labelFontWeight": "bold",
+      "labelAlign": "right",
+      "labelAngle": 270,
+      "labelBaseline": "middle",
+      "zindex": 1
+    },
+    {
+      "scale": "y",
+      "orient": "left",
+      "grid": false,
+      "labelFontSize": 12,
+      "labelFontWeight": "bold",
+      "zindex": 1
+    }
+  ],
+  "legends": [
+    {
+      "fill": "color",
+      "gradientLength": {"signal": "clamp(height, 64, 200)"},
+      "title": "Count of Records"
+    }
+  ],
+  "config": {}
+}
