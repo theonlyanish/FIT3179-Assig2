@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-     "width": 900, "height": 200,
+    "width": 900,
     "data": {
       "url": "https://raw.githubusercontent.com/theonlyanish/FIT3179-Assig2/main/data/COVID-19_India_Statewise_Vaccine.csv"
     },

@@ -7,7 +7,17 @@
   "mark": "line",
   "encoding": {
     "x": {"field": "Date_of_incident", "type": "temporal","timeUnit":"monthdate"},
-    "y": {"field": "No_of_deaths", "type": "quantitative"}
+    "y": {"field": "No_of_deaths", "type": "quantitative"},
+
+      "tooltip": [
+        {"field": "Date_of_incident", "type": "temporal", "timeUnit":"monthdate", "title": "Date of death"},
+        {
+          "field": "No_of_deaths",
+          "type": "quantitative",
+          "title": "Number of deaths"
+        }
+      ],
+      "text": {"field": "No_of_deaths", "type": "quantitative"}
   }
 }
 

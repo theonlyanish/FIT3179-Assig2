@@ -6,6 +6,17 @@
   "mark": "bar",
   "encoding": {
     "x": {"field": "State/UT", "type": "nominal", "title":"States/Union Territorys"},
-    "y": {"aggregate": "mean", "field":"NumUrbanBeds_NHP18", "title": "Number of beds"}
+    "y": {"aggregate": "mean", "field":"NumUrbanBeds_NHP18", "title": "Number of beds"},
+
+        "tooltip": [
+        {"field": "State/UT", "type": "nominal", "title": "State"},
+        {
+          "field": "NumUrbanBeds_NHP18",
+          "type": "quantitative",
+          "title": "Number of beds"
+        }
+      ],
+      "text": {"field": "NumUrbanBeds_NHP18", "type": "quantitative"},
+      
   }
 }
