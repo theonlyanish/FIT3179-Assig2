@@ -33,6 +33,9 @@
   
     var barChart = "js/bed_count.vg.json";
     vegaEmbed('#barchart', barChart, {"actions": false}).then(function(result) {}).catch(console.error);
+
+    var groupbarchart = "js/vaccine_drive.vg.json";
+    vegaEmbed('#groupbarchart', groupbarchart, {"actions": false}).then(function(result) {}).catch(console.error);
   
   </script>
 
@@ -93,7 +96,7 @@
                 <h1 class="display-5 fw-bold">Factors that affected the spead of Covid in India</h1>
                 <p class="col-md-8 fs-4">India is one of the biggest countries in terms of population and population density, which can also
                     pose as an issue when struck with diseases or viruses. Covid-19 affected India in a major way due to this reason, the following 
-                    visualisations talk about this.
+                    visualisations talk about this. Hover on any visualisation to get more info.
                 </p>
                 <a href="#section-1" class="btn btn-dark btn-lg">Read more</a>
             </div>
@@ -183,16 +186,14 @@
         <section id="section-4">
         <div class="w3-content">
             <div class="w3-third">
-                <h2> Bed availibility in different states</h2>
+                <h2> Vaccination per population</h2>
 
-                <p class="w3-text-grey"> This visualisation shows the availibility of beds in different states during this duration,
-                as it supports the previous section regarding the deaths caused due to oxygen shortage and ICU bed issues. 
-                These numbers may look sufficient, however, they were not ideal for the population density of the states, 
-                which meant, for every 10 people, there were 0.0n number of beds available</p>
+                <p class="w3-text-grey"> Apart from the negative factors, India started a huge vaccination drive within the country for every state. Here you can see the 1st dose comparison to the state's population.
+                </p>
             </div>
 
-            <div class="w3-twothird">
-                <div id="barchart"></div>
+            <div>
+                <div id="groupbarchart"></div>
             </div>
         </div>
         </section>

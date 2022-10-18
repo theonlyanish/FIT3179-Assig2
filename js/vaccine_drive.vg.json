@@ -1,0 +1,31 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+     "width": 900, "height": 200,
+    "data": {
+      "url": "https://raw.githubusercontent.com/theonlyanish/FIT3179-Assig2/main/data/COVID-19_India_Statewise_Vaccine.csv"
+    },
+    "repeat": {"layer": ["Dose 1", "Population"]},
+    "spec": {
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field":"State/UTs",
+          "type": "nominal"
+        
+  
+        },
+        "y": {
+          "aggregate": "sum",
+          "field": {"repeat": "layer"},
+          "type": "quantitative",
+          "title": "Vaccine drive"
+        },
+        "color": {"datum": {"repeat": "layer"}, "title": "Gross"},
+        "xOffset": {"datum": {"repeat": "layer"}}
+      }
+    },
+    "config": {
+      "mark": {"invalid": null}
+    }
+  }
+  
