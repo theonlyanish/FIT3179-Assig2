@@ -42,3 +42,62 @@ h1 {
 .small-font {
     font-size: 14px;
 }
+
+
+
+.facts{
+	background: white;
+	width: 100%;
+	padding: 100px 0px;
+}
+.title h2{
+	color: black;
+	font-size: 45px;
+	width: 100%;
+	margin: 30px auto;
+	padding-left: 2%;
+	
+}
+.box{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 400px;
+}
+.card{
+	height: 365px;
+	width: 335px;
+	padding: 20px 35px;
+	background: #191919;
+	border-radius: 20px;
+	margin: 15px;
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+}
+.card i{
+	font-size: 50px;
+	display: block;
+	text-align: center;
+	margin: 25px 0px;
+	color: #f9004d;
+
+}
+h5{
+	color: black;
+	font-size: 23px;
+	margin-bottom: 15px;
+}
+
+.pra p{
+	color: darkgrey;
+	font-size: 16px;
+	line-height: 27px;
+	margin-bottom: 25px;
+}
+
+.text p{
+	line-height: 27px;
+	margin-bottom: 10px;
+	font-size: 22px;
+}

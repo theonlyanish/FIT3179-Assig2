@@ -12,42 +12,29 @@
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
+<link rel="stylesheet" href="/css/styles.css">
+<script src="https://kit.fontawesome.com/7bef3666f8.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <script src="vega_lite_vs.js"></script>
 
-<script>
-    // India map
-    var vg_1 = "heatmap_india.vg.json";
-    vegaEmbed("#map_1", vg_1).then(function (result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view 
-    }).catch(console.error);
-
-    //Line chart
-    var vg_1 = "map_2_class_age.vg.json";
-    vegaEmbed("#map_2", vg_1).then(function (result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view 
-    }).catch(console.error);
-
-    //Heatmap
-    var vg_1 = "map_3_total_vehicles_casualties_month.vg.json";
-    vegaEmbed("#map_3", vg_1).then(function (result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view 
-    }).catch(console.error);
-
-    //Bed area chart
-    var vg_1 = "map_3_total_vehicles_casualties_month.vg.json";
-    vegaEmbed("#map_3", vg_1).then(function (result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view 
-    }).catch(console.error);
-
-    //Oxygen bar chart
-    var vg_1 = "map_3_total_vehicles_casualties_month.vg.json";
-    vegaEmbed("#map_3", vg_1).then(function (result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view 
-    }).catch(console.error);
-
-</script>
+<script type="text/javascript">
+    var map = "js/heatmap_india.vg.json";
+    vegaEmbed('#choropleth_map', map, {"actions": false}).then(function(result) {}).catch(console.error);
+  
+    var linechart = "js/non_covid_death_trend.vg.json";
+    vegaEmbed('#linechart', linechart, {"actions": false}).then(function(result) {}).catch(console.error);
+  
+    var heatmap= "js/non_covid_death_heat.vg.json";
+    vegaEmbed('#heatmap', heatmap, {"actions": false}).then(function(result) {}).catch(console.error);
+  
+    var areachart = "js/icu_oxygen.vg.json";
+    vegaEmbed('#areachart', areachart, {"actions": false}).then(function(result) {}).catch(console.error);
+  
+    var barChart = "js/bed_count.vg.json";
+    vegaEmbed('#barchart', barChart, {"actions": false}).then(function(result) {}).catch(console.error);
+  
+  </script>
 
 
 <title>Covid heatmap of India</title>
@@ -62,16 +49,58 @@
         text-align: center;
         font-family: "Montserrat", sans-serif;
     }
-    .anything {
-        margin:0 auto; 
-        text-align: center;
-    }
-
 </style>
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Spread of Covid in India</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#intro">Introduction</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#section-1">Covid in India</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#section-2">Non-Covid Death</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#section-2">ICU beds in states</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#section-3">Lack of oxygen</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#section-4">Facts</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section>
+    <div class="m-5">
+        <div class="p-5 mb-4 bg-light rounded-3" id="intro">
+            <div class="container-fluid py-5">
+                <h1 class="display-5 fw-bold">Factors that affected the spead of Covid in India</h1>
+                <p class="col-md-8 fs-4">India is one of the biggest countries in terms of population and population density, which can also
+                    pose as an issue when struck with diseases or viruses. Covid-19 affected India in a major way due to this reason, the following 
+                    visualisations talk about this.
+                </p>
+                <a href="#section-1" class="btn btn-dark btn-lg">Read more</a>
+            </div>
+        </div>
+    </div>
 
 
     <!-- First Grid -->
     <div class="w3-row-padding w3-padding-64 w3-container">
+        <section id="section-1">
         <div class="w3-content">
             <div class="w3-third">
                 <h2>Active case relation to population density</h2>
@@ -83,13 +112,15 @@
 
             <div class="w3-twothird">
                 
-                <div id="map_1"></div>
+                <div id="choropleth_map"></div>
             </div>
         </div>
+        </section>>
     </div>
 
     <!-- Second Grid -->
     <div class="w3-row-padding w3-padding-64 w3-container">
+        <section id="section-2">
         <div class="w3-content">
             <div class="w3-third">
                 <h2>The effect of lockdown on deaths</h2>
@@ -100,58 +131,107 @@
             </div>
 
             <div class="w3-twothird">
-                
-                <div id="map_2"></div>
+                <div id="linechart"></div>
             </div>
-        </div>
+
+    
+    </section>
     </div>
 
     <!-- Third Grid -->
     <div class="w3-row-padding w3-padding-64 w3-container">
         <div class="w3-content">
             <div class="w3-third">
-                <h2>Deaths caused due to oxygen shortage</h2>
+                <h2> Deaths caused due to oxygen shortage</h2>
 
-                <p class="w3-text-grey">India underwent a serious shortage of oxygen tanks and ICU beds as critical cases were on rise in 2021 as compared to non critical
+                <p class="w3-text-grey"> India underwent a serious shortage of oxygen tanks and ICU beds as critical cases were on rise in 2021 as compared to non critical
                     cases which did not need serious attention. This led to a lot of deaths and concern for the future. This line graph shows the 
                     surge of deaths which may directly be a result of the shortage. </p>
             </div>
 
             <div class="w3-twothird">
                 
-                <div id="map_3"></div>
+                <div id="areachart"></div>
             </div>
         </div>
     </div>
 
     <!-- Fourth Grid -->
     <div class="w3-row-padding w3-padding-64 w3-container">
+        <section id="section-3">
         <div class="w3-content">
             <div class="w3-third">
-                <h2> The effect of vaccinations on active cases</h2>
+                <h2> Bed availibility in different states</h2>
 
-                <p class="w3-text-grey">After facing the drastic effects of covid and lockdown, India started a major vaccination drive post the vaccine approval and testing phase
-                    which showed a change in the number of active cases as well the number of deaths as shown below. </p>
+                <p class="w3-text-grey"> This visualisation shows the availibility of beds in different states during this duration,
+                as it supports the previous section regarding the deaths caused due to oxygen shortage and ICU bed issues. 
+                These numbers may look sufficient, however, they were not ideal for the population density of the states, 
+                which meant, for every 10 people, there were 0.0n number of beds available</p>
             </div>
 
             <div class="w3-twothird">
-                
-                <div id="map_4"></div>
+                <div id="barchart"></div>
             </div>
         </div>
+        </section>
+    </div>
+
+
+    <div id="facts">
+        <section id="section-4">
+        <div class = "facts">
+            <div  class="title" style="text-align: center">
+                <h2>Additional facts about Covid-19 in India</h2>
+            </div>
+            <div class="box">
+                <div class="card">
+                    <i class="fas fa-syringe" ></i>
+                    <h5 id= furnture_assembly_tag>Vaccination</h5>
+                    <div class="pra" >
+                        <p id = pra_tag>India became the world's largest vaccine manufacturer in 2021, however, despite this feat, only 15% of the population was vaccinated which still posed issues for the country's covid situation</p>
+                    </div>
+                </div>
+    
+                <div class="card">
+                    <i class="fas fa-bed"></i>
+                    <h5>Deaths </h5>
+                    <div class="pra" >
+                        <p id = pra_tag_tutor>Despite having a high population and population density, India had a very low death ratio as compared to other countries, however this could be caused by less death reporting</p>
+    
+                    </div>
+                </div>
+                <div class="card">
+                    <i class="far fa-hourglass"></i>
+                    <h5> Lockdown</h5>
+                    <div class="pra" >
+                        <p id = pra_tag_tutor> India imposed a month long lockdown for its 1.3 billion population, which was the most far-reaching measure undertaken by
+                            any goverment to curb the spread  </p>
+    
+                    </div>
+                </div>
+
+                <div class="card">
+                    <i class="fas fa-first-aid"></i>
+                    <h5> Oxygen</h5>
+                    <div class="pra" >
+                        <p id = pra_tag_tutor> In 2021, India underwent a massive shortage of oxygen which led to multiple deaths as shown above, during this period, many countries such as UK and US offered help by sending oxygen tanks   </p>
+    
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </section>
     </div>
 
 
 
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-64 w3-center w3-opacity">
+    <h4>Visualisation by Anish Kapse</h4>
+        <p>FIT3179 Assignment 2 </p>      
 
-<div class="anything">
-
-    <footer> Visualisation by Anish Kapse
-        <li>FIT3179 Assignment 2</li>
-    </footer>
-
-</div>
-
+</footer>
    
 </div>
 </body>
