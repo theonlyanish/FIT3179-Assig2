@@ -13,10 +13,11 @@
         {
           "field": "NumUrbanBeds_NHP18",
           "type": "quantitative",
-          "title": "Number of beds"
+          "title": "Number of beds",
+          "format": ",.0f"
         }
       ],
-      "text": {"field": "NumUrbanBeds_NHP18", "type": "quantitative"},
+      "text": {"field": "NumUrbanBeds_NHP18", "type": "quantitative"}
       
   }
 }

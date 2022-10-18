@@ -14,7 +14,8 @@
         {
           "field": "No_of_deaths",
           "type": "quantitative",
-          "title": "Number of deaths"
+          "title": "Number of deaths",
+          "format": ",.0f"
         }
       ],
       "text": {"field": "No_of_deaths", "type": "quantitative"}

@@ -5,15 +5,32 @@
   "mark": "area",
   "encoding": {
     "x": {
-      "timeUnit": "month", "field": "date_of_incident", "type": "temporal",
+      "timeUnit": "month", "field": "date_of_incident", "type": "temporal", "title":"Date of incident",
       "axis": {"format": "%d/%b"}
     },
     "y": {
-      "aggregate": "median", "field": "no_of_deaths", "type": "quantitative"
+      "aggregate": "mean", "field": "no_of_deaths", "type": "quantitative", "title":"Number of deaths"
     },
     "color": {
       "field": "state",
       "scale": {"scheme": "category20b"}
-    }
+    },
+            "tooltip": [{"field": "state", "type": "nominal"},
+            {"field":"no_of_deaths", "type": "quantitative","aggregate":"mean", "format":".0f","title":"Number of deaths"}
+      
+        ]
+      },
+      "params": [{
+        "name": "hover",
+        "select": {
+          "type": "point",
+          "fields": ["date_of_incident"],
+          "nearest": true,
+          "on": "mouseover",
+          "clear": "mouseout"
+        }
+      }]
+  
+
   }
-}
+
