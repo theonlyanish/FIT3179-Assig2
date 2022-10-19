@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 600,
   "height": 600,
-  "title": "Death Ratio of Covid-19 Cases in India as of 21st September 2021",
+  "title": "Timeline of Active Covid-19 Cases In India",
   "projection": {
     "type": "equirectangular"
   },
@@ -46,7 +46,7 @@
         "color": {
           "field": "active_cases",
           "type": "ordinal",
-          "title": "Death Ratio (%)"
+          "title": "Active cases"
         },
         "stroke": {
           "condition": {
@@ -73,7 +73,12 @@
           {
             "field": "active_cases",
             "type": "quantitative",
-            "title": "Death Ratio (%)"
+            "title": "Active cases"
+          },
+          {
+            "field":"",
+            "type": "quantitative",
+            "title": "Deaths"
           }
         ]
       }
