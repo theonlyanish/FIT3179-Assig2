@@ -53,9 +53,14 @@
         text-align: center;
         font-family: "Montserrat", sans-serif;
     }
+     .navbar-custom {
+        background-color: black;
+        font-family: "Montserrat", sans-serif;
+        }
 </style>
 
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-inverse navbar-expand-md navbar-dark fixed-top navbar-custom">
+  
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Spread of Covid in India</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
@@ -63,7 +68,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0 ml-auto">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#intro">Introduction</a>
                 </li>
@@ -92,12 +97,12 @@
 
 <section>
     <div class="m-5">
-        <div class="p-5 mb-4 bg-light rounded-3" id="intro">
-            <div class="container-fluid py-5">
-                <h1 class="display-5 fw-bold">Factors that affected the spead of Covid in India</h1>
-                <p class="col-md-8 fs-4">India is one of the biggest countries in terms of population and population density, which can also
-                    pose as an issue when struck with diseases or viruses. Covid-19 affected India in a major way due to this reason, the following 
-                    visualisations talk about this. Hover on any visualisation to get more info.
+        <div class="p-5 mb-4 bg-light rounded-3 w3 w3-center" id="intro">
+            <div class="container-fluid py-5 w3-center">
+                <h1 class="display-5 fw-bold w3-center w3-padding-16">Factors that affected the spead of Covid in India</h1>
+                <p class="fs-4 w3-center">India is one of the biggest countries in terms of population and population density, which can also
+                    pose as an issue when struck with diseases or viruses. <br>Covid-19 affected India in a major way due to this reason, the following 
+                    visualisations talk about this. Hover on any visualisation to get more info. <br> Feel free to use the time filters as well as the animation to explore given data
                 </p>
                 <a href="#section-1" class="btn btn-dark btn-lg">Read more</a>
             </div>
@@ -112,7 +117,7 @@
             <div class="w3-third">
                 <h2>Active case relation to population density</h2>
 
-                <p class="w3-text-grey">Covid-19 in India took a heavy toll on the population and the wellbeing for a long period of time due to a number of factors
+                <p class="w3-text-grey ">Covid-19 in India took a heavy toll on the population and the wellbeing for a long period of time due to a number of factors
                     such as population density, vaccinations, ICU beds, etc. This map shows the growth of covid per state in the form of heatmap
                     using month scale on the axis below.</p>
             </div>
@@ -129,17 +134,18 @@
     <div class="w3-row-padding w3-padding-64 w3-container">
         <section id="section-2">
         <div class="w3-content">
+            <div class="w3-twothird">
+                <div id="linechart"></div>
+            </div>
+
             <div class="w3-third">
                 <h2>The effect of lockdown on deaths</h2>
-
                 <p class="w3-text-grey">India had 4 lockdown in the year 2020 followed by the cooldown phases in 2021, this chart displays the effect of lockdown
                     on the spread. There were many deaths during the lockdown period which were not virus caused such as suicides and hunger
                     and migration. </p>
             </div>
 
-            <div class="w3-twothird">
-                <div id="linechart"></div>
-            </div>
+       
 
             <div class="w3-threethird">
                 <div id="heatmap"></div>
@@ -171,18 +177,20 @@
     <div class="w3-row-padding w3-padding-64 w3-container">
         <section id="section-3">
         <div class="w3-content">
-            <div class="w3-third">
+           
+            <div class="w3-twothird">
+                <div id="barchart"></div>
+            </div>
+            
+            <div class="w3-third">    
                 <h2> Bed availibility in different states</h2>
-
                 <p class="w3-text-grey"> This visualisation shows the availibility of beds in different states during this duration,
                 as it supports the previous section regarding the deaths caused due to oxygen shortage and ICU bed issues. 
                 These numbers may look sufficient, however, they were not ideal for the population density of the states, 
                 which meant, for every 10 people, there were 0.0n number of beds available</p>
             </div>
 
-            <div class="w3-twothird">
-                <div id="barchart"></div>
-            </div>
+           
         </div>
         </section>
     </div>
@@ -190,16 +198,15 @@
     <div class="w3-row-padding w3-padding-64 w3-container">
         <section id="section-4">
         <div class="w3-content">
-            <div class="w3-third">
+            <div class="w3-cell-middle w3-center ">
                 <h2> Vaccination per population</h2>
 
                 <p class="w3-text-grey"> Apart from the negative factors, India started a huge vaccination drive within the country for every state. Here you can see the 1st dose comparison to the state's population.
                 </p>
             </div>
-
-            <div>
-                <div id="groupbarchart"></div>
-            </div>
+        </div>
+        <div class="w3-padding">
+            <div id="groupbarchart"></div>
         </div>
         </section>
     </div>
