@@ -4,6 +4,24 @@
   "height": 350,
   "background": "#f1f1f1",
   "data": {"url": "https://raw.githubusercontent.com/theonlyanish/FIT3179-Assig2/main/data/HospitalBedsIndia.csv"},
+
+     "params": [
+    {
+      "name": "NumUrbanBeds_NHP18",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 60000,
+        "step": 1000,
+        "name": "Minimum beds available: "
+      }
+    }
+  ],
+    "transform": [
+       {"filter": "datum.NumUrbanBeds_NHP18 > NumUrbanBeds_NHP18"}
+    ]
+    ,
   "mark": "bar",
   "encoding": {
     "x": {"field": "State/UT", 
