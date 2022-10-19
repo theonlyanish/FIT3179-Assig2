@@ -1,49 +1,68 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 1300,
+  "height": 200,
+  "data": {
+    "url": "https://raw.githubusercontent.com/theonlyanish/FIT3179-Assig2/main/data/COVID-19_India_Statewise_Vaccine.csv"
+  },
 
-    "data": {
-      "url": "https://raw.githubusercontent.com/theonlyanish/FIT3179-Assig2/main/data/COVID-19_India_Statewise_Vaccine.csv"
-    },
-    "repeat": {"layer": ["Dose 1", "Population"]},
-    "spec": {
-      "mark": "bar",
-      "encoding": {
-        "x": {
-          "field":"State/UTs",
-          "type": "nominal"
-        },
-        "y": {
-          "aggregate": "sum",
-          "field": {"repeat": "layer"},
-          "type": "quantitative",
-          "title": "Vaccine drive"
-        },
-        "color": {"datum": {"repeat": "layer"}, "title": "Sum"},
-        "xOffset": {"datum": {"repeat": "layer"}},
 
-         "tooltip": [
-        {"field": "State/UTs", "type": "nominal", "title": "State"},
-        {
-          "field": "Population",
-          "type": "quantitative",
-          "title": "Population",
-          "format": ",.0f"
-        },
-        {
-          "field": "Dose 1",
-          "type": "quantitative",
-          "title": "1st dose administered",
-          "format": ",.0f"
-        }
-      ]
-    
-
+    "params": [
+    {
+      "name": "Population",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 200000000,
+        "step": 1000000,
+        "name": "Minimum Population: "
       }
-    },
-    
-
-    "config": {
-      "mark": {"invalid": null}
     }
-  }
+  ],
+    "transform": [
+       {"filter": "datum.Population > Population"}
+    ],
+
+  "repeat": {"layer": ["Dose 1", "Population"]},
+  "spec": {
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field":"State/UTs",
+        "type": "nominal"
+      },
+      "y": {
+        "aggregate": "sum",
+        "field": {"repeat": "layer"},
+        "type": "quantitative",
+        "title": "Vaccine drive"
+      },
+      "color": {"datum": {"repeat": "layer"}, "title": "Total Count"},
+      "xOffset": {"datum": {"repeat": "layer"}},
+
+       "tooltip": [
+      {"field": "State/UTs", "type": "nominal", "title": "State"},
+      {
+        "field": "Population",
+        "type": "quantitative",
+        "title": "Population",
+        "format": ",.0f"
+      },
+      {
+        "field": "Dose 1",
+        "type": "quantitative",
+        "title": "1st dose administered",
+        "format": ",.0f"
+      }
+    ]
   
+
+    }
+  },
+  
+
+  "config": {
+    "mark": {"invalid": null}
+  }
+}

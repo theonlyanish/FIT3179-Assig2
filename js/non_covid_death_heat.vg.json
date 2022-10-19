@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "width":1000,"height":500,
   "description": "A simple bar chart with embedded data.",
-  "background": "white",
+  "background": "#f1f1f1",
   "padding": 5,
   "style": "cell",
   "data": [

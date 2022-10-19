@@ -1,13 +1,14 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
    "width": 500,
-  "height": 500,
+  "height": 300,
+  "background": "#f1f1f1",
   "description": "Google's stock price over time.",
   "data": {"url": "https://raw.githubusercontent.com/theonlyanish/FIT3179-Assig2/main/data/india_non-virus-deaths.csv"},
   "mark": "line",
   "encoding": {
-    "x": {"field": "Date_of_incident", "type": "temporal","timeUnit":"monthdate"},
-    "y": {"field": "No_of_deaths", "type": "quantitative"},
+    "x": {"field": "Date_of_incident", "type": "temporal","timeUnit":"monthdate", "title":"Date of death"},
+    "y": {"field": "No_of_deaths", "type": "quantitative","title":"Number of deaths"},
 
       "tooltip": [
         {"field": "Date_of_incident", "type": "temporal", "timeUnit":"monthdate", "title": "Date of death"},

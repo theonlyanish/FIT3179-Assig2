@@ -33,18 +33,18 @@
           "lookup": "properties.NAME_1",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/theonlyanish/FIT3179-Assig2/main/data/owid-covid-data.csv"
+              "url": "https://raw.githubusercontent.com/theonlyanish/FIT3179-Assig2/main/data/covid_19_data.csv"
             },
-            "key": "location",
+            "key": "Province/State",
             "fields": [
-              "active_cases"
+              "Confirmed"
             ]
           }
         }
       ],
       "encoding": {
         "color": {
-          "field": "active_cases",
+          "field": "Confirmed",
           "type": "ordinal",
           "title": "Active cases"
         },
@@ -71,12 +71,12 @@
             "title": "State/UTs"
           },
           {
-            "field": "active_cases",
+            "field": "Confirmed",
             "type": "quantitative",
             "title": "Active cases"
           },
           {
-            "field":"",
+            "field":"new_deaths",
             "type": "quantitative",
             "title": "Deaths"
           }

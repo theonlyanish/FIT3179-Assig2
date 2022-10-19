@@ -65,10 +65,12 @@ h1 {
 	min-height: 400px;
 }
 .card{
+	
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+	background: #191919;
 	height: 365px;
 	width: 335px;
 	padding: 20px 35px;
-	background: #191919;
 	border-radius: 20px;
 	margin: 15px;
 	position: relative;
@@ -90,7 +92,7 @@ h5{
 }
 
 .pra p{
-	color: darkgrey;
+	color: grey;
 	font-size: 16px;
 	line-height: 27px;
 	margin-bottom: 25px;

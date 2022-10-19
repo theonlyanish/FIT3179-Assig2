@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 400, "height": 300,
+  "width": 500, "height": 300,
   "data": {"url": "https://raw.githubusercontent.com/theonlyanish/FIT3179-Assig2/main/data/oxygen_shortage_deaths_in_india.csv"},
   "mark": "area",
   "encoding": {
@@ -12,7 +12,7 @@
       "aggregate": "mean", "field": "no_of_deaths", "type": "quantitative", "title":"Number of deaths"
     },
     "color": {
-      "field": "state",
+      "field": "state", "title":"State",
       "scale": {"scheme": "category20b"}
     },
             "tooltip": [{"field": "state", "type": "nominal"},

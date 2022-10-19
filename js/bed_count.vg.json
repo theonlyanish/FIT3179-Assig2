@@ -1,23 +1,34 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 400,
-  "height": 250,
+  "width": 550,
+  "height": 350,
+  "background": "#f1f1f1",
   "data": {"url": "https://raw.githubusercontent.com/theonlyanish/FIT3179-Assig2/main/data/HospitalBedsIndia.csv"},
   "mark": "bar",
   "encoding": {
-    "x": {"field": "State/UT", "type": "nominal", "title":"States/Union Territorys"},
-    "y": {"aggregate": "mean", "field":"NumUrbanBeds_NHP18", "title": "Number of beds"},
+    "x": {"field": "State/UT", 
+    "type": "nominal",
+    "title":"States/Union Territorys",
+    "axis": {"labelAngle": -50}},
 
-        "tooltip": [
-        {"field": "State/UT", "type": "nominal", "title": "State"},
-        {
-          "field": "NumUrbanBeds_NHP18",
-          "type": "quantitative",
-          "title": "Number of beds",
-          "format": ",.0f"
+    "y": {"aggregate": "mean",
+     "field":"NumUrbanBeds_NHP18",
+      "title": "Number of beds"},
+      "color":{"value":"#4c78a8"},
+    "tooltip": [
+      {"field": "State/UT",
+       "type": "nominal",
+        "title": "State"},
+
+      {
+        "field": "NumUrbanBeds_NHP18",
+        "type": "quantitative",
+        "title": "Number of beds",
+        "format": ",.0f"
         }
       ],
-      "text": {"field": "NumUrbanBeds_NHP18", "type": "quantitative"}
+      "text": {"field": "NumUrbanBeds_NHP18",
+               "type": "quantitative"}
       
   }
 }
