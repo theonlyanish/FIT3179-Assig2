@@ -37,16 +37,29 @@
             },
             "key": "Province/State",
             "fields": [
-              "Confirmed"
-            ]
+              "Confirmed"]
           }
         }
+
       ],
       "encoding": {
         "color": {
           "field": "Confirmed",
-          "type": "ordinal",
-          "title": "Active cases"
+          "type": "quantitative",
+          "title": "Active cases",
+          "scale":{
+            "scheme": "reds",
+            "reverse": false
+          },
+              "legend": {
+            "direction": "horizontal",
+            "gradientLength": 620,
+            "orient": "bottom",
+            "offset": 0,
+            "labelAlign": "center"
+          }
+
+
         },
         "stroke": {
           "condition": {
@@ -64,6 +77,7 @@
           },
           "value": 1
       },
+         
         "tooltip": [
           {
             "field": "properties.NAME_1",
@@ -73,13 +87,18 @@
           {
             "field": "Confirmed",
             "type": "quantitative",
-            "title": "Active cases"
+            "title": "Active cases",
+            "format":".0f"
           },
           {
-            "field":"new_deaths",
-            "type": "quantitative",
-            "title": "Deaths"
-          }
+            "field":"Deaths",
+            "type":"quantitative",
+            "title":"Deaths"
+          },
+          {"field":"Recovered",
+          "type":"quantitative",
+          "title":"Recovered cases"}
+
         ]
       }
     }
